@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block main %}
+    <h1>Your Portfolio, {{ user }}</h1>
+    <div class="center">
+        <form action="/sell", method="post">
+            <div class="mb-3">
+            <label for="cars">Choose a stock:</label>
+            <select name="symbol" id="stock">
+                {% for stock in stocks %}
+                <option value="{{ stock['symbol'] }}">{{ stock['symbol'] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="shares" placeholder="Input the number of shares" type="text" required>
+            </div>
+            <button class="btn btn-primary" type="submit">sell</button>
+        </form>
+    </div>
+{% endblock %}

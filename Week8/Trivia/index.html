@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function(){
+                let answer = document.querySelector('form');
+                answer.addEventListener('submit', function(event){
+                    let result = document.querySelector('p2');
+                    input = document.querySelector('#answer');
+                    if(input.value == '2004') {
+                        result.innerHTML = 'Correct';
+                    }
+                    else {
+                        result.innerHTML = 'Incorrect';
+                    }
+                    event.preventDefault();
+                });
+                document.querySelector('#option1').addEventListener('click', function(){
+                    document.querySelector('#option1').style.backgroundColor = "green";
+                    document.querySelector('p1').innerHTML = 'Correct';
+
+                })
+                document.querySelector('#option2').addEventListener('click', function(){
+                    document.querySelector('#option2').style.backgroundColor = "red";
+                })
+                document.querySelector('#option3').addEventListener('click', function(){
+                    document.querySelector('#option3').style.backgroundColor = "red";
+                })
+                document.querySelector('#option4').addEventListener('click', function(){
+                    document.querySelector('#option4').style.backgroundColor = "red";
+                })
+                document.querySelector('#option5').addEventListener('click', function(){
+                    document.querySelector('#option5').style.backgroundColor = "red";
+                })
+                })
+        </script>
+    </head>
+    <body>
+        <style>
+            .test{
+                display: block;
+            }
+        </style>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is the human body's heaviest organ?</h3>
+                <button class="button" id="option1">Skin</button>
+                <button class="button" id="option2">Bone</button>
+                <button class="button" id="option3">Muscle</button>
+                <button class="button" id="option4">Heart</button>
+                <button class="button" id="option5">Brain</button>
+                <p1 class="test"></p1>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>When did Facebook first launch?</h3>
+                <form>
+                    <input class="input" autocomplete="off" id="answer" name="answer" >
+                    <button class="button">Submit</button>
+                </form>
+                <p2></p2>
+            </div>
+        </div>
+    </body>
+</html>

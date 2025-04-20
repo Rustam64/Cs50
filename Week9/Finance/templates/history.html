@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block main %}
+    <h1>Hello, {{ username }}</h1>
+    <div class="center">
+        <table>
+            <tr>
+                <th>Stock</th>
+                <th>Amount</th>
+                <th>Price</th>
+                <th>Balance</th>
+                <th>Transaction Date</th>
+            </tr>
+            {% for stock in stocks %}
+                <tr style="background-color: {% if stock['type'] == 'BUY' %}red{% else %}green{% endif %};">
+                    <td>{{ stock['symbol'] }}, {{ stock['stock'] }}</td>
+                    <td>{{ stock['amount'] }}</td>
+                    <td>{{ prices[stock['symbol']]  | usd}}</td>
+                    <td>{{ stock['balance']  | usd}}</td>
+                    <td>{{ stock['time'] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

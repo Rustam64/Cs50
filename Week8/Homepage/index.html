@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<html lang="en">
+
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>My WebPage</title>
+        <link rel="icon" href="files/frog.jpg">
+        <script>
+            document.addEventListener('DOMContentLoaded', function(){
+                let deg = 90;
+                setInterval(function() {document.getElementById('image').style.transform = `rotate(${deg}deg)`; deg+=90; }, 1000);
+                const messages = ['The term "bug" in programming came from an actual moth found stuck in a Harvard Mark II computer in 1947.',
+                'Google’s first-ever storage was made from LEGO bricks to hold 40GB of data!',
+                'The @ symbol was chosen for email addresses in 1971 by Ray Tomlinson, the creator of email, to separate the username from the computer name.',
+                'The first documented "Hello, World!" program appeared in a 1972 Bell Labs manual for the C programming language.',
+                'In 1956, IBM released the first hard drive—it stored only 5MB and weighed over a ton!']
+                let answer = document.getElementById('image');
+                answer.addEventListener('click', function(event){alert(messages[Math.floor(Math.random() * messages.length)]);});
+            })
+        </script>
+    </head>
+
+    <body>
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <nav class="nav flex-column">
+                    <a class="nav-link active" aria-current="page" href="#"><p class="text-success">Home</p></a>
+                    <a class="nav-link" href="hobbies.html">Hobbies</a>
+                    <a class="nav-link" href="contacts.html">Contacts</a>
+                    <a class="nav-link" href="about.html">About</a>
+                </nav>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+        <div class="card" style="width: 18rem; float: left; background-color: rgb(183, 205, 255)" >
+            <img src="https://media.licdn.com/dms/image/v2/D5635AQHqu8k8fG3Z-A/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1733286453644?e=1742248800&v=beta&t=5SHOeJmcJIek5r2YgwhXJna1ZcZ7iM2RzMHyw9rs7lM" class="card-img-top" alt="Profile Image" style = "border-radius: 50%;">
+            <div class="card-body">
+                <h5 class="card-title">Rakhimov Rustambek</h5>
+                <p class="card-text">INHA University, SGCS Graduate</p>
+                <p class="card-text">Intern at OpenQQuantify</p>
+                <a href="https://www.linkedin.com/in/rrustambek/" class="btn btn-primary">My Linkedin</a>
+            </div>
+        </div>
+        <div id="list">
+            <ul>
+                <li>Python</li>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">90%</div>
+                  </div>
+                <li>C++</li>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped" aria-valuenow="70" aria-valuemin="0" aria-valuemax="70" style="width: 70%">70%</div>
+                  </div>
+                <li>Web</li>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped" aria-valuenow="60" aria-valuemin="0" aria-valuemax="60" style="width: 60%">60%</div>
+                  </div>
+                <li>Unreal Engine</li>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped" aria-valuenow="70" aria-valuemin="0" aria-valuemax="70" style="width: 70%">70%</div>
+                  </div>
+            </ul>
+        </div>
+        <div id="clipy">
+        <img src="files/Clippy.jpg" alt="Clippy" id="image">
+        </div>
+        <div class="video-container">
+    <video autoplay muted loop id="myVideo">
+        <source src="files/bg.webm" type="video/webm">
+    </video>
+</div>
+</body>
+
+</html>

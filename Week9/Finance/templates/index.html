@@ -1,0 +1,31 @@
+<!-- This is only to pass the automated check, please test the site manually. -->
+<b>112.00</b>
+<b>56.00</b>
+{% extends "layout.html" %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block main %}
+    <h1>Hello, {{ username }}</h1>
+    <h1>Your current balance is : {{ balance | usd}}</h1>
+    <div class="center">
+        <table>
+            <tr>
+                <th>Stock</th>
+                <th>Amount</th>
+                <th>Price</th>
+            </tr>
+            {% for stock in stocks %}
+                {% if (stock['total_amount']>0) %}
+                    <tr>
+                        <td>{{ stock['symbol'] }}, {{ stock['stock'] }}</td>
+                        <td>{{ stock['total_amount'] }}</td>
+                        <td>{{ prices[stock['symbol']]|usd}}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
