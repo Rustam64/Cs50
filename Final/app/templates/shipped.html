@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block title %}
+    Shipped Orders
+{% endblock %}
+
+{% block main %}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+    <h1>Below are the items that have been shipped</h1>
+    <h1></h1>
+    <div class="center">
+        <table>
+            <thead>
+                <tr>
+                    {% for header in headers %}
+                        {% if header != "coupang_id" and header != "id"%}
+                            <th>{{ header }}</th>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                {% if row['status'] == "shipped" %}
+                <tr>
+                    {% for header in headers %}
+                        {% if header != "coupang_id" and header != "id"%}
+                            {% if header == "name" %}
+                                <td><a href="https://www.coupang.com/vp/products/{{ row['coupang_id'] }}">{{ row[header] }}</a></td>
+                            {% else %}
+                                <td>{{ row[header] }}</td>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    <td>
+                    <form action="/shipped" method="post">
+                    <input type="hidden" name="product_name" value="{{ row['name'] }}">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

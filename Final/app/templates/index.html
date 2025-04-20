@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block main %}
+    <h1>Hello, {{ username }}</h1>
+    <h1>Below are the items in inventory</h1>
+    <div class="center">
+        <table>
+            <thead>
+                <tr>
+                    {% for header in headers %}
+                        {% if header != "coupang_id" and header != "id"%}
+                            {%if header == "alternative_price" %}
+                                <th>price in Uzbekistan</th>
+                                <th>recommended price</th>
+                            {% else %}
+                                <th>{{ header }}</th>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                {% if row['status'] == "inventory" %}
+                <tr>
+                    {% for header in headers %}
+                        {% if header != "coupang_id" and header != "id"%}
+                            {% if header == "name" %}
+                                <td><a href="https://www.coupang.com/vp/products/{{ row['coupang_id'] }}">{{ row[header] }}</a></td>
+                            {% elif header == "alternative_price" %}
+                            <td>{{ row['alternative_price'] }}</td>
+                            <td>{{ row['final_price'] }}</td>
+                            {% else %}
+                                <td>{{ row[header] }}</td>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    <td>
+                    <form action="/" method="post">
+                    <input type="hidden" name="product_name" value="{{ row['name'] }}">
+                    <button class="btn btn-info" type="submit">Shipped</button>
+                    </form>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block main %}
+
+    <div class="center">
+        <table>
+            <thead>
+                <tr>
+                    <th>Awaiting</th>
+                    <th>Inventory</th>
+                    <th>Shipped</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ await_current }}</td>
+                    <td>{{ inv_current }}</td>
+                    <td>{{ shipped_current }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="center">
+        <table>
+            <thead>
+                <tr>
+                    {% for header in headers %}
+                        <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                    <tr>
+                        {% for header in headers %}
+                            <td>{{ row[header] }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

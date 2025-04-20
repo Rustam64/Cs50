@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Orders
+{% endblock %}
+
+{% block main %}
+<div class="search-container">
+    <form action="https://www.coupang.com/np/search?component=&" method="get" target="_blank">
+        <input type="search" name="q" placeholder="Search Coupang..." required />
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<form action="/orders" method="post">
+    <div class="form-container">
+        <div class="form-left">
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control" name="coupang_id" placeholder="product link" type="text">
+            </div>
+            <div class="mb-3">
+                <input class="form-control" name="name" placeholder="name" type="text">
+            </div>
+            <div class="mb-3">
+                <input class="form-control" name="category" placeholder="category" type="text">
+            </div>
+            <div class="mb-3">
+                <input class="form-control" name="quantity" placeholder="quantity" type="number">
+            </div>
+        </div>
+        <div class="form-right">
+            <div class="mb-3">
+                <select name="brand" id="brand">
+                    <option value="manyo">Manyo</option>
+                    <option value="axis-y">Axis-Y</option>
+                    <option value="tocobo">Tocobo</option>
+                    <option value="roundlab">Roundlab</option>
+                    <option value="joseon">Joseon Beauty</option>
+                    <option value="madagascar">Madagascar</option>
+                    <option value="ordinary">The Ordinary</option>
+                    <option value="dr.ceuracle">Dr.Ceuracle</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <select name="status" id="status">
+                    <option value="inventory">Inventory</option>
+                    <option value="waiting">Waiting</option>
+                    <option value="shipped">Shipped</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <input class="form-control" name="description" placeholder="description" type="text">
+            </div>
+            <div class="mb-3">
+                <input class="form-control" name="price" placeholder="price" type="number" step="0.01">
+            </div>
+            <div class="mb-3">
+                <input class="form-control" name="alternative_price" placeholder="Price in Uzbekistan" type="number" step="0.01">
+            </div>
+        </div>
+    <button class="btn btn-primary" type="submit" id='submit-button'>Add Order</button>
+</form>
+{% endblock %}  
