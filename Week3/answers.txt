@@ -1,0 +1,11 @@
+sort1 uses: bubble sort
+5.7s random & 0.05s sorted
+How do you know?: High run time for random but very low run time for sorted list.
+
+sort2 uses: merge sort
+0.6s sorted & o.6s random
+How do you know?: Low run time on both the sorted and random list.
+
+sort3 uses: selection sort
+2.5s random & 2.5s sorted
+How do you know?: High run time for random and high run time for sorted list.
